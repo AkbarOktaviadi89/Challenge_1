@@ -4,8 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     static String[] pesanan = new String[5];
     static int totalQty = 0,totalHarga = 0;
@@ -76,6 +74,7 @@ public class Main {
         int[] harga = {15000, 13000, 18000, 3000, 5000};
         return harga[pilih - 1];
     }
+
     public static void tampilPembayaran(String[] pesan) throws IOException {
 
         // Reset totalQty dan totalHarga
@@ -119,6 +118,7 @@ public class Main {
         }
     }
 
+    //Method pembuatan Struct
     public static void konfirmasiBayar(String structFile) throws IOException {
             totalQty = 0;
             totalHarga = 0;
