@@ -44,9 +44,7 @@ public class Main {
         input.close();
     }
     public static void tampilPesanan(int pilih, String[] menu) throws IOException {
-        //inisialisasi
-        int qtyNasiGoreng = 0,qtyMieGoreng = 0,qtyNasiAyam = 0,qtyEsTehManis = 0 ,qtyEsJeruk = 0;
-        int kembali = 1;
+        int[] qtyPesanan = new int[menu.length];
 
         if (pilih != 99 && pilih != 0) {
             System.out.println("\n=============================");
@@ -54,90 +52,30 @@ public class Main {
             System.out.println("=============================\n");
         }
 
-        switch (pilih) {
-            case 1 -> {
-                System.out.println(menu[0]);
-                System.out.println("(input 0 untuk kembali)");
-                while(true) {
-                    System.out.print("qty => ");
-                    int inputQty = input.nextInt();
-                    if (inputQty == 0) {
-                        printMenu();
-                        break;
-                    } else {
-                        qtyNasiGoreng = inputQty;
-                        pesanan[0] = "Nasi Goreng \t" + qtyNasiGoreng + "\t" + qtyNasiGoreng * 15000;
-                    }
+        if (pilih >= 1 && pilih <= menu.length) {
+            System.out.println(menu[pilih - 1]);
+            System.out.println("(input 0 untuk kembali)");
+            while (true) {
+                System.out.print("qty => ");
+                int inputQty = input.nextInt();
+                if (inputQty == 0) {
+                    printMenu();
+                    break;
+                } else {
+                    qtyPesanan[pilih - 1] = inputQty;
+                    pesanan[pilih - 1] = menu[pilih - 1] + "\t" + qtyPesanan[pilih - 1] + "\t" + qtyPesanan[pilih - 1] * hargaMenu(pilih);
                 }
             }
-            case 2 -> {
-                System.out.println(menu[1]);
-                System.out.println("(input 0 untuk kembali)");
-                while(true) {
-                    System.out.print("qty => ");
-                    int inputQty = input.nextInt();
-                    if (inputQty == 0) {
-                        printMenu();
-                        break;
-                    } else {
-                        qtyMieGoreng = inputQty;
-                        pesanan[1] = "Mie Goreng  \t" + qtyMieGoreng + "\t" + qtyMieGoreng * 13000;
-                    }
-                }
-            }
-            case 3 -> {
-                System.out.println(menu[2]);
-                System.out.println("(input 0 untuk kembali)");
-                while(true) {
-                    System.out.print("qty => ");
-                    int inputQty = input.nextInt();
-                    if (inputQty == 0) {
-                        printMenu();
-                        break;
-                    } else {
-                        qtyNasiAyam = inputQty;
-                        pesanan[2] = "Nasi Ayam   \t"  + qtyNasiAyam + "\t" + qtyNasiAyam * 18000;
-                    }
-                }
-            }
-            case 4 -> {
-                System.out.println(menu[3]);
-                System.out.println("(input 0 untuk kembali)");
-                while(true) {
-                    System.out.print("qty => ");
-                    int inputQty = input.nextInt();
-                    if (inputQty == 0) {
-                        printMenu();
-                        break;
-                    } else {
-                        qtyEsTehManis = inputQty;
-                        pesanan[3] = "Es Teh Manis\t" + qtyEsTehManis + "\t" + qtyEsTehManis * 3000 ;
-                    }
-                }
-            }
-            case 5 -> {
-                System.out.println(menu[4]);
-                System.out.println("(input 0 untuk kembali)");
-                while(true) {
-                    System.out.print("qty => ");
-                    int inputQty = input.nextInt();
-                    if (inputQty == 0) {
-                        printMenu();
-                        break;
-                    } else {
-                        qtyEsJeruk = inputQty;
-                        pesanan[4] = "Es Jeruk    \t" + qtyEsJeruk + "\t" + qtyEsJeruk * 5000;
-                    }
-                }
-            }
-            case 99 -> {
-                tampilPembayaran(pesanan);
-            }
-            case 0 -> System.exit(1);
+        } else if (pilih == 99) {
+            tampilPembayaran(pesanan);
+        } else if (pilih == 0) {
+            System.exit(1);
         }
-
     }
-
+    public static int hargaMenu(int pilih) {
+        int[] harga = {15000, 13000, 18000, 3000, 5000};
+        return harga[pilih - 1];
+    }
     public static void tampilPembayaran(String[] pesan) throws IOException {
 
         // Reset totalQty dan totalHarga
@@ -220,7 +158,7 @@ public class Main {
                }
            }
            bwr.write("-----------------------------+\n");
-           bwr.write("Total \t\t\t" + totalQty + "\t" + totalHarga);
+           bwr.write("Total \t\t" + totalQty + "\t" + totalHarga);
            bwr.write("\n\nPembayaran : BinarCash\n\n");
 
            bwr.write("=============================\n");
