@@ -10,10 +10,10 @@ Dibawah ini adalah pesanan anda
 Nasi Goreng 	2	30000
 Mie Goreng  	2	26000
 Nasi Ayam   	1	18000
-Es Teh Manis	3	9000
+Es Teh Manis	2	6000
 Es Jeruk    	2	10000
 -----------------------------+
-Total 			20	186000
+Total 	9	90000
 
 Pembayaran : BinarCash
 

@@ -140,23 +140,26 @@ public class Main {
 
     public static void tampilPembayaran(String[] pesan) throws IOException {
 
+        // Reset totalQty dan totalHarga
+        totalQty = 0;
+        totalHarga = 0;
 
         System.out.println("\n=============================");
         System.out.println("Konfirmasi & Pembayaran");
         System.out.println("=============================\n");
+            for (String tampilPesan : pesan) {
+                if (tampilPesan != null) {
+                    String[] parts = tampilPesan.split("\t");
+                    int qty = Integer.parseInt(parts[1]);
+                    int harga = Integer.parseInt(parts[2]);
 
-        for (String tampilPesan : pesan) {
-            if (tampilPesan != null) {
-                String[] parts = tampilPesan.split("\t");
-                int qty = Integer.parseInt(parts[1]);
-                int harga = Integer.parseInt(parts[2]);
+                    totalQty += qty;
+                    totalHarga += harga;
 
-                totalQty += qty;
-                totalHarga += harga;
-
-                System.out.println(tampilPesan);
+                    System.out.println(tampilPesan);
+                }
             }
-        }
+
         System.out.println("-----------------------------+");
         System.out.println("Total \t\t\t" + totalQty + "\t" + totalHarga + "\n");
 
@@ -179,7 +182,17 @@ public class Main {
     }
 
     public static void konfirmasiBayar(String structFile) throws IOException {
-           File file = new File(structFile);
+            totalQty = 0;
+            totalHarga = 0;
+            int counter = 1;
+            String newFileName = structFile;
+
+            //membuat file baru
+            while (new File(newFileName).exists()) {
+                newFileName = "Struk_" + counter + ".txt";
+                counter++;
+            }
+           File file = new File(newFileName);
            if (file.createNewFile()) {
                System.out.println("Struct File succesfully created");
            } else {
@@ -207,7 +220,7 @@ public class Main {
                }
            }
            bwr.write("-----------------------------+\n");
-           bwr.write("Total \t\t\t" + totalQty + "\t" + totalHarga);
+           bwr.write("Total \t" + totalQty + "\t" + totalHarga);
            bwr.write("\n\nPembayaran : BinarCash\n\n");
 
            bwr.write("=============================\n");
