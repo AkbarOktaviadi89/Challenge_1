@@ -121,8 +121,6 @@ public class Main {
 
     //Method pembuatan Struct
     public static void konfirmasiBayar(String structFile) throws IOException {
-            totalQty = 0;
-            totalHarga = 0;
             int counter = 1;
             String newFileName = structFile;
 
@@ -147,13 +145,6 @@ public class Main {
 
            for (String tampilPesan : pesanan) {
                if (tampilPesan != null) {
-                   String[] parts = tampilPesan.split("\t");
-                   int qty = Integer.parseInt(parts[1]);
-                   int harga = Integer.parseInt(parts[2]);
-
-                   totalQty += qty;
-                   totalHarga += harga;
-
                    bwr.write(tampilPesan);
                    bwr.newLine();
                }
