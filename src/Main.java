@@ -190,7 +190,7 @@ public class Main {
            bwr.write("=============================\n");
            bwr.write("Binar fud\n");
            bwr.write("=============================\n\n");
-           bwr.write("Terima kasih telah memesan di binar fud\n\n");
+           bwr.write("Terima kasih sudah memesan \ndi binar fud\n\n");
            bwr.write("Dibawah ini adalah pesanan anda\n\n");
 
            for (String tampilPesan : pesanan) {
