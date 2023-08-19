@@ -158,7 +158,7 @@ public class Main {
             }
         }
         System.out.println("-----------------------------+");
-        System.out.println("Total \t\t\t" + totalQty + "\t" + totalHarga + "\n\n");
+        System.out.println("Total \t\t\t" + totalQty + "\t" + totalHarga + "\n");
 
         System.out.println("1. Konfirmasi dan Bayar");
         System.out.println("2. Kembali ke menu utama");
