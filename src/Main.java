@@ -220,13 +220,14 @@ public class Main {
                }
            }
            bwr.write("-----------------------------+\n");
-           bwr.write("Total \t" + totalQty + "\t" + totalHarga);
+           bwr.write("Total \t\t\t" + totalQty + "\t" + totalHarga);
            bwr.write("\n\nPembayaran : BinarCash\n\n");
 
            bwr.write("=============================\n");
            bwr.write("Simpan Struk ini sebagai \nbukti pembayaran\n");
            bwr.write("=============================");
 
+           bwr.flush();
            bwr.close();
            fw.close();
     }
