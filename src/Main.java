@@ -61,7 +61,8 @@ public class Main {
                     break;
                 } else {
                     qtyPesanan[pilih - 1] = inputQty;
-                    pesanan[pilih - 1] = menu[pilih - 1] + "\t" + qtyPesanan[pilih - 1] + "\t" + qtyPesanan[pilih - 1] * hargaMenu(pilih);
+                    String[] namaMenu = {"Nasi Goreng  ", "Mie Goreng  ", "Nasi Ayam   ", "Es teh manis", "Es jeruk    "};
+                    pesanan[pilih - 1] = namaMenu[pilih - 1] + "\t" + qtyPesanan[pilih - 1] + "\t" + qtyPesanan[pilih - 1] * hargaMenu(pilih);
                 }
             }
         } else if (pilih == 99) {

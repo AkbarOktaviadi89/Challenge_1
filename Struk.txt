@@ -1,0 +1,23 @@
+=============================
+Binar fud
+=============================
+
+Terima kasih sudah memesan 
+di binar fud
+
+Dibawah ini adalah pesanan anda
+
+Nasi Goreng  	1	15000
+Mie Goreng  	2	26000
+Nasi Ayam   	2	36000
+Es teh manis	2	6000
+Es jeruk    	2	10000
+-----------------------------+
+Total 		9	93000
+
+Pembayaran : BinarCash
+
+=============================
+Simpan Struk ini sebagai 
+bukti pembayaran
+=============================
